@@ -41,7 +41,7 @@ public class ListaPack {
     public void mostrar(){
         int i = 1;
         for (Pack e: packs){
-            System.out.println(i + " . $"+ e.getPrecio() + " " + e.getNombre());
+            System.out.println(i + ") . $"+ e.getPrecio() + " " + e.getNombre());
             System.out.println("Veneficios: ");
             e.veneficios();
             i++;
@@ -107,5 +107,10 @@ public class ListaPack {
         System.out.println("2. agregar veneficio");
         System.out.println("3. eliminar veneficio");
         System.out.println("4. salir");
+    }
+    
+    public void add(Pack nuevo){
+        packs.add(nuevo);
+                
     }
 }
