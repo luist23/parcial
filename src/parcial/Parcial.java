@@ -18,7 +18,9 @@ public class Parcial {
         // TODO code application logic here
         
         //Menu menu = null;
+        ListaPack listaPack= new ListaPack();
         Menu menu = Menu.getInstance();
+        menu.listaPack=listaPack;
         menu.mostrar();
     }
     

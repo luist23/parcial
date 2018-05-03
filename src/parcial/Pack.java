@@ -48,7 +48,7 @@ public class Pack {
     public void veneficios(){
         int i= 1;
         for (String e:veneficios){
-            System.out.println(i + e);
+            System.out.println(i+ ". " + e);
             i++;
         }
     }

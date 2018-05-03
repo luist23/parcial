@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Menu {
     private static Menu menu;
-    private ListaPack listaPack;
+    public ListaPack listaPack;
     
     private Menu(){}
     
@@ -39,7 +39,6 @@ public class Menu {
          System.out.println("4. eliminar reservacion");
          System.out.println("5. regresar a menu principal");  
      }
-     
      public void opcionesAdministracion(){
          System.out.println("1. habilitar habitacion");
          System.out.println("2. habilitar piso");
@@ -50,15 +49,12 @@ public class Menu {
          System.out.println("7. modificar paquete");
          System.out.println("8. regresar a menu principal");
      }
-     
      public void opcionesPack(){
          System.out.println("1. crear Pack");
          System.out.println("2. eliminar Pack");
          System.out.println("3. editar Pack");
          System.out.println("4. volver al menu de administracion");
      }
-     
-     
     public void mostrar() {
         int opcion = 4;
         Scanner leer = new Scanner(System.in);
@@ -70,10 +66,10 @@ public class Menu {
 
                 switch (opcion) {
                     case 1:
-                        //estudiantes.add();
+                        reservas();
                         break;
                     case 2:
-                        //estudiantes.mostrar();
+                        administracion();
                         break;
                     case 3:
                         System.out.println("Adios :(");
@@ -87,13 +83,13 @@ public class Menu {
             }
         }
     }
-    
     public void packetes(){
         System.out.println("------SubMenu Packetes------");
-        int opcion = 4;
+        int opcion = 5;
         Scanner leer = new Scanner(System.in);
         
-        while (opcion != 3) {
+        while (opcion!=4) {
+            System.out.println(opcion);
             opcionesPack();
             try {
                 opcion = leer.nextInt();
@@ -110,6 +106,7 @@ public class Menu {
                         break;
                     case 4:
                         System.out.println("adios :v");
+                        //mostrar();
                         break;
                     default:
                         System.out.println("Por favor ingrese una opcion valida");
@@ -121,7 +118,87 @@ public class Menu {
         }
     }
     
+    //editar
+    public void reservas(){
+        System.out.println("------SubMenu Reservaciones------");
+        int opcion = 4;
+        Scanner leer = new Scanner(System.in);
+        
+        while (opcion != 5) {
+            opcionesReserva();
+            try {
+                opcion = leer.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("mostrar reservaciones de la semana");
+                        break;
+                    case 2:
+                        System.out.println("crear nueva reservacion");
+                        break;
+                    case 3:
+                        System.out.println("editar reservacion existente");
+                        break;
+                    case 4:
+                        System.out.println("eliminar reseravcion");
+                        break;
+                    case 5:
+                        System.out.println("adios");
+                        break;
+                    default:
+                        System.out.println("Por favor ingrese una opcion valida");
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("Por favor, Ingrese un número");
+                leer.nextLine();
+            }
+        }
+    }
     
-    
+    //editar
+    public void administracion(){
+        System.out.println("------SubMenu Administrador------");
+        int opcion = 4;
+        Scanner leer = new Scanner(System.in);
+        
+        while (opcion != 8) {
+            opcionesAdministracion();
+            try {
+                opcion = leer.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("habilitar habitacion");
+                        break;
+                    case 2:
+                        System.out.println("habilitar piso");
+                        break;
+                    case 3:
+                        System.out.println("habilitar todo");
+                        break;
+                    case 4:
+                        System.out.println("deshabilitar habitacion");
+                        break;
+                    case 5:
+                        System.out.println("deshabilitar piso");
+                        break;
+                    case 6:
+                        System.out.println("cambiar precio base");
+                        break;
+                    case 7:
+                        packetes();
+                        break;
+                    case 8: 
+                        System.out.println("adios ");
+                        break;
+                    default:
+                        System.out.println("Por favor ingrese una opcion valida");
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("Por favor, Ingrese un número");
+                leer.nextLine();
+            }
+        }
+    }
     
 }

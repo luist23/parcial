@@ -15,12 +15,15 @@ import utils.Utils;
  */
 public class ListaPack {
     private ArrayList<Pack> packs;
-    public ListaPack(){}
+    public ListaPack(){
+    packs=new ArrayList<>();
+    }
     
     public void nuevoPack(){
         Scanner leer= new Scanner(System.in);
         Utils util= new Utils();
         Pack pack = new Pack();
+        packs.add(pack);
         pack.setPrecio(util.pedirEntero("ingrese el precio de paquete"));
         System.out.println("ingrese el nombre del paquete ");
         pack.setNombre(leer.nextLine());
@@ -29,10 +32,11 @@ public class ListaPack {
             pack.addVeneficio(leer.nextLine());
             System.out.println("desea ingresar otro veneficio s/n");
             String flag=leer.nextLine();
-            if (flag=="n"){
-            break;}
+            if ("n".equals(flag)){
+            break;
+            }
         }
-        packs.add(pack);
+        
     }
     public void mostrar(){
         int i = 1;
